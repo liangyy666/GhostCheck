@@ -1,0 +1,30 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <form action="/index/" method="get">
+        <input type="text" name="q" />
+        <input type="submit" value="Search" />
+    </form>
+    
+</div>
+
+<div class="row">
+
+    <div class="col-md-6">
+        {% if ghosts %}
+            {% for v1 in ghosts %}
+                <ul>
+                {% for v2 in v1 %}
+                    <li>{{ v2|safe }}</li>
+                {% endfor %}
+                </ul>
+                <br/>
+            {% endfor %}
+        {% endif %}
+                
+    </div>
+</div>
+
+{% endblock %}
